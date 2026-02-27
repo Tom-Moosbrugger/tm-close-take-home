@@ -64,8 +64,8 @@ In order to run this script, you will need to have a few things installed on you
 ### Setup
 
 Open a terminal window and run the following commands:
-1. `git clone`
-2. `cd`
+1. `git clone https://github.com/Tom-Moosbrugger/tm-close-take-home.git`
+2. `cd tm-close-take-home`
 3. `virtualenv venv`
 4. `. venv/bin/activate`
 4. `pip install -r requirements.txt`
