@@ -36,10 +36,10 @@ Addressing the second complication happened as we examined each row. For each ro
 
 This is probably best illustrated with some examples, so here are a few:
 - **Names**: trimmed leading/trailing whitespace, applied consistent title-casing (e.g., “Sample Name”), and discarded rows where the company or contact name was missing.
-- **Emails**, Allowed multiple emails separated by ;, validated each against standard email format rules, normalized valid addresses, and discarded any invalid entries.
-- **Phone Numbers**, I allowed users to input multiple phone numbers by splitting them across lines, removed non-numeric characters except + and -, required a leading + country code, validated the number against country-specific digit rules, and discarded invalid numbers.
+- **Emails**, Allowed multiple emails separated by ';', and validated each against standard email format rules (needs to have an @, domain, etc.).
+- **Phone Numbers**, I allowed users to input multiple phone numbers by splitting them across lines, required a leading '+' country code, removed non-numeric characters except '+' and '-', and checked that the number met country-specific digit rules based on its country code.
 
-Once the data was both validated and grouped together in our grouped_leads 'folder', the next step was to upload them to Close. Using the API Key you provide when you run the file, I connected to Close's server and send each record one at a time. If a record is rejected for any reason, the script informs you and shares the reason it happened, but continues uploading the other records.
+Once the data was both validated and grouped together in our grouped_leads 'folder', the next step was to upload them to Close. Using the API Key you provide when you run the file, I connected to Close's server and send each record one at a time. If a record is rejected for any reason, the script informs you and shares the reason it happened, but continues uploading the other records. Once complete, it tells you how many records were successfully uploaded, and how many failed. 
 
 ### Goal 2: Create a new .csv with the provided Leads
 
