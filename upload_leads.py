@@ -14,7 +14,7 @@ parser.add_argument("--end-date", "-e", required=True, help="End date for groupi
 
 args = parser.parse_args()
 
-# enforce format for start and end day
+# enforce format for start and end date
 try:
     start_date = datetime.strptime(args.start_date, "%Y-%m-%d").date()
     end_date = datetime.strptime(args.end_date, "%Y-%m-%d").date()
@@ -123,14 +123,14 @@ for row in reader:
     else:
         existing = grouped_leads[company]
 
-        # if the row had a contact, add it to the list of contacts for the lead if not a duplicate
+        # if the row had a contact, add it to the list of contacts for the existing lead if not a duplicate
         if lead.get("contacts"):
             existing.setdefault("contacts", [])
             contact = lead["contacts"][0]
             if contact not in existing["contacts"]:
                 existing["contacts"].append(contact)
         
-        # if the row had an address, add it to the list of addresses for the lead if not a duplicate                
+        # if the row had an address, add it to the list of addresses for the existing lead if not a duplicate                
         if lead.get("addresses"):
             existing.setdefault("addresses", [])
             address = lead["addresses"][0]
